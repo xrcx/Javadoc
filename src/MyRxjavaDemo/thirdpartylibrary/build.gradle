@@ -31,7 +31,7 @@ dependencies {
 }
 
 task jarMyLib(type: Jar, dependsOn: ['build']) {
-    archiveName = 'value_added_api_V1.0.jar'
+    archiveName = 'value_added_api_V1.1.jar'
     from('build/intermediates/classes/release')
     destinationDir = file('build/libs')
     exclude('com/arke/BuildConfig.class')
@@ -39,6 +39,6 @@ task jarMyLib(type: Jar, dependsOn: ['build']) {
     exclude('**/R.class')
     exclude('**/R\$*.class')
     exclude('*.MF')
-    include('com/arke/*.class')
-    include('com/arke/thirdcalling/*.class')
+    include('com/arke/aidl/*.class')
+    include('com/arke/vas/*.class')
 }

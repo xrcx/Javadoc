@@ -34,4 +34,5 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
     compile files('libs/my-lib.jar')
+    compile files('libs/teller_api_V2.1.jar')
 }

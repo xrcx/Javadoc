@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 
-    package="com.arke.thirdcalling.lib">
+    package="com.arke.vas.lib">
 
     <application
         android:allowBackup="true"

@@ -31,7 +31,7 @@ dependencies {
 }
 
 task jarMyLib(type: Jar, dependsOn: ['build']) {
-    archiveName = 'teller_api_V2.0.jar'
+    archiveName = 'teller_api_V3.0.jar'
     from('build/intermediates/classes/release')
     destinationDir = file('build/libs')
     exclude('com/arke/BuildConfig.class')
@@ -39,6 +39,5 @@ task jarMyLib(type: Jar, dependsOn: ['build']) {
     exclude('**/R.class')
     exclude('**/R\$*.class')
     exclude('*.MF')
-    include('com/arke/*.class')
-    include('com/arke/teller/*.class')
+    include('com/arke/vas/*.class')
 }
