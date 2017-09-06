@@ -1,14 +1,24 @@
 package com.arke.vas;
-import com.arke.vas.IVASListener;
+
+import android.os.RemoteException;
+
 import com.arke.vas.data.VASPayload;
-interface IVASInterface {
+
+
+/**
+ * 增值业务接口 Binder
+ */
+public class VASInterfaceStub extends IVASInterface.Stub {
     /**
      * 签到
      *
      * @param listener 监听器
      * @see IVASListener
      */
-    void signIn(IVASListener listener);
+    @Override
+    public void signIn(IVASListener listener) throws RemoteException {
+
+    }
 
     /**
      * 消费
@@ -31,7 +41,10 @@ interface IVASInterface {
      * @see IVASListener
      * @see VASPayload
      */
-    void sale(in VASPayload requestData, IVASListener listener);
+    @Override
+    public void sale(VASPayload requestData, IVASListener listener) throws RemoteException {
+
+    }
 
     /**
      * 消费撤销
@@ -49,7 +62,10 @@ interface IVASInterface {
      * @see IVASListener
      * @see VASPayload
      */
-    void voided(in VASPayload requestData, IVASListener listener);
+    @Override
+    public void voided(VASPayload requestData, IVASListener listener) throws RemoteException {
+
+    }
 
     /**
      * 退货
@@ -68,7 +84,10 @@ interface IVASInterface {
      * @see IVASListener
      * @see VASPayload
      */
-    void refund(in VASPayload requestData, IVASListener listener);
+    @Override
+    public void refund(VASPayload requestData, IVASListener listener) throws RemoteException {
+
+    }
 
     /**
      * 预授权
@@ -89,8 +108,10 @@ interface IVASInterface {
      * @see IVASListener
      * @see VASPayload
      */
-    void authorization(in VASPayload requestData, IVASListener listener);
+    @Override
+    public void authorization(VASPayload requestData, IVASListener listener) throws RemoteException {
 
+    }
 
     /**
      * 离线结算
@@ -111,8 +132,10 @@ interface IVASInterface {
      * @see IVASListener
      * @see VASPayload
      */
-    void offlineSettlement(in VASPayload requestData, IVASListener listener);
+    @Override
+    public void offlineSettlement(VASPayload requestData, IVASListener listener) throws RemoteException {
 
+    }
 
     /**
      * 离线结算调整
@@ -130,8 +153,10 @@ interface IVASInterface {
      * @see IVASListener
      * @see VASPayload
      */
-    void settlementAdjustment(in VASPayload requestData, IVASListener listener);
+    @Override
+    public void settlementAdjustment(VASPayload requestData, IVASListener listener) throws RemoteException {
 
+    }
 
     /**
      * 结算
@@ -140,17 +165,16 @@ interface IVASInterface {
      * @throws RemoteException
      * @see IVASListener
      */
-    void settle(IVASListener listener);
+    @Override
+    public void settle(IVASListener listener) throws RemoteException {
 
-    /**
-     * 根据第三方交易流水获取交易记录
-     *
-     * @param orderNumber 第三方交易流水
-     * @param listener    监听器
-     * @throws RemoteException
-     * @see IVASListener
-     */
-    void orderNumberQuery(in VASPayload requestData, IVASListener listener);
+    }
+
+
+    @Override
+    public void orderNumberQuery(VASPayload requestData, IVASListener listener) throws RemoteException {
+
+    }
 
     /**
      * 打印交易汇总
@@ -159,7 +183,10 @@ interface IVASInterface {
      * @throws RemoteException
      * @see IVASListener
      */
-    void printTransactionSummary(IVASListener listener);
+    @Override
+    public void printTransactionSummary(IVASListener listener) throws RemoteException {
+
+    }
 
     /**
      * 打印交易明细
@@ -168,7 +195,10 @@ interface IVASInterface {
      * @throws RemoteException
      * @see IVASListener
      */
-    void printTransactionDetail(IVASListener listener);
+    @Override
+    public void printTransactionDetail(IVASListener listener) throws RemoteException {
+
+    }
 
     /**
      * 终端密钥管理
@@ -177,7 +207,10 @@ interface IVASInterface {
      * @throws RemoteException
      * @see IVASListener
      */
-    void terminalKeyManagement(IVASListener listener);
+    @Override
+    public void terminalKeyManagement(IVASListener listener) throws RemoteException {
+
+    }
 
     /**
      * 获取交易开关
@@ -204,8 +237,10 @@ interface IVASInterface {
      *                         <br/>
      *                         <img src="get_action_config_json.png">
      */
-    String getActionConfig();
-
+    @Override
+    public String getActionConfig() throws RemoteException {
+        return null;
+    }
 
     /**
      * 获取 AID 列表
@@ -217,7 +252,10 @@ interface IVASInterface {
      *                         <br/>
      *                         <img src="get_aids_json.png">
      */
-    String getAids();
+    @Override
+    public String getAids() throws RemoteException {
+        return null;
+    }
 
     /**
      * 预留交易扩展接口(暂不使用)
@@ -227,7 +265,10 @@ interface IVASInterface {
      * @throws RemoteException
      * @see IVASListener
      */
-    void doAction(in VASPayload requestData, IVASListener listener);
+    @Override
+    public void doAction(VASPayload requestData, IVASListener listener) throws RemoteException {
+
+    }
 
     /**
      * 获得优惠券
@@ -237,7 +278,10 @@ interface IVASInterface {
      * @throws RemoteException
      * @see IVASListener
      */
-    void getCoupon(in VASPayload requestData, IVASListener listener);
+    @Override
+    public void getCoupon(VASPayload requestData, IVASListener listener) throws RemoteException {
+
+    }
 
     /**
      * 撤销优惠券
@@ -247,7 +291,10 @@ interface IVASInterface {
      * @throws RemoteException
      * @see IVASListener
      */
-    void voidCoupon(in VASPayload requestData, IVASListener listener);
+    @Override
+    public void voidCoupon(VASPayload requestData, IVASListener listener) throws RemoteException {
+
+    }
 
     /**
      * 执行计划任务
@@ -255,43 +302,67 @@ interface IVASInterface {
      * @param listener 监听器
      * @see IVASListener
      */
-    void doTask(IVASListener listener);
+    @Override
+    public void doTask(IVASListener listener) throws RemoteException {
+
+    }
 
     /**
      * 获取计划任务
      *
      * @return crontab表达式
      */
-    String getTaskConfig();
+    @Override
+    public String getTaskConfig() throws RemoteException {
+        return null;
+    }
 
     /**
      * 小费调整
      *
+     * @param requestData
+     * @param listener
      * @return crontab表达式
      */
-    void adjustTips(in VASPayload requestData, IVASListener listener);
+    @Override
+    public void adjustTips(VASPayload requestData, IVASListener listener) throws RemoteException {
+
+    }
 
     /**
      * 离线
      *
+     * @param requestData
+     * @param listener
      * @return crontab表达式
      */
-    void offline(in VASPayload requestData, IVASListener listener);
+    @Override
+    public void offline(VASPayload requestData, IVASListener listener) throws RemoteException {
 
+    }
 
     /**
      * 预授权撤销
      *
+     * @param requestData
+     * @param listener
      * @return crontab表达式
      */
-    void preAuthorizationVoid(in VASPayload requestData, IVASListener listener);
+    @Override
+    public void preAuthorizationVoid(VASPayload requestData, IVASListener listener) throws RemoteException {
+
+    }
 
     /**
      * 扫码
      * param requestData 请求数据
      *
+     * @param requestData
+     * @param listener
      * @see IVASListener
      */
-    void scanCode(in VASPayload requestData, IVASListener listener);
+    @Override
+    public void scanCode(VASPayload requestData, IVASListener listener) throws RemoteException {
 
+    }
 }

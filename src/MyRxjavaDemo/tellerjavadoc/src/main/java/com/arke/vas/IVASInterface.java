@@ -2,6 +2,11 @@ package com.arke.vas;
 
 import android.os.RemoteException;
 
+import com.arke.vas.data.VASPayload;
+
+/**
+ * 增值业务接口
+ */
 interface IVASInterface {
     /**
      * 签到
@@ -14,7 +19,7 @@ interface IVASInterface {
     /**
      * 消费
      *
-     * @param requestData 消费请求数据，JSON格式
+     * @param requestData 消费 body 请求数据，JSON格式
      *                    <table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
      *                    <tr><td>amount</td><td>Double</td><td>交易金额</td></tr>
@@ -27,17 +32,17 @@ interface IVASInterface {
      *                    <p>
      *                    消费请求数据例子：
      *                    <br/>
-     *                    <img src="../../../image/consume_request_emv_json.png">
+     *                    <img src="../../../image/consume_payload.png">
      * @throws RemoteException
-     * @see IVASListener
      * @see VASPayload
+     * @see IVASListener
      */
-    void consume(VASPayload requestData, IVASListener listener);
+    void sale(VASPayload requestData, IVASListener listener);
 
     /**
      * 消费撤销
      *
-     * @param requestData 消费请求数据，JSON格式
+     * @param requestData 消费撤销 body 请求数据，JSON格式
      *                    <table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
      *                    <tr><td>originalVoucherNumber</td><td>String</td><td>原交易凭证号</td></tr>
@@ -47,15 +52,15 @@ interface IVASInterface {
      *                    </table>
      * @param listener    监听器
      * @throws RemoteException
-     * @see IVASListener
      * @see VASPayload
+     * @see IVASListener
      */
     void voided(VASPayload requestData, IVASListener listener);
 
     /**
      * 退货
      *
-     * @param requestData 退货请求数据，JSON格式
+     * @param requestData 退货 body 请求数据，JSON格式
      *                    <table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
      *                    <tr><td>amount</td><td>Double</td><td>交易金额</td></tr>
@@ -66,15 +71,15 @@ interface IVASInterface {
      *                    </table>
      * @param listener    监听器
      * @throws RemoteException
-     * @see IVASListener
      * @see VASPayload
+     * @see IVASListener
      */
     void refund(VASPayload requestData, IVASListener listener);
 
     /**
      * 预授权
      *
-     * @param requestData 请求数据，JSON格式
+     * @param requestData body 请求数据，JSON格式
      *                    <table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
      *                    <tr><td>amount</td><td>Double</td><td>交易金额</td></tr>
@@ -87,8 +92,8 @@ interface IVASInterface {
      *                    预授权请求数据例子：
      *                    <br/>
      * @throws RemoteException
-     * @see IVASListener
      * @see VASPayload
+     * @see IVASListener
      */
     void authorization(VASPayload requestData, IVASListener listener);
 
@@ -96,7 +101,7 @@ interface IVASInterface {
     /**
      * 离线结算
      *
-     * @param requestData 请求数据，JSON格式
+     * @param requestData body 请求数据，JSON格式
      *                    <table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
      *                    <tr><td>cardNumber</td><td>Double</td><td>卡号</td></tr>
@@ -109,8 +114,8 @@ interface IVASInterface {
      *                    离线结算请求数据例子：
      *                    <br/>
      * @throws RemoteException
-     * @see IVASListener
      * @see VASPayload
+     * @see IVASListener
      */
     void offlineSettlement(VASPayload requestData, IVASListener listener);
 
@@ -118,7 +123,7 @@ interface IVASInterface {
     /**
      * 离线结算调整
      *
-     * @param requestData 请求数据，JSON格式
+     * @param requestData body 请求数据，JSON格式
      *                    <table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
      *                    <tr><td>originalVoucherNumber</td><td>String</td><td>原交易凭证号</td></tr>
@@ -128,8 +133,8 @@ interface IVASInterface {
      *                    离线结算调整请求数据例子：
      *                    <br/>
      * @throws RemoteException
-     * @see IVASListener
      * @see VASPayload
+     * @see IVASListener
      */
     void settlementAdjustment(VASPayload requestData, IVASListener listener);
 
@@ -146,12 +151,16 @@ interface IVASInterface {
     /**
      * 根据第三方交易流水获取交易记录
      *
-     * @param orderNumber 第三方交易流水
+     * @param requestData body 请求数据，JSON格式
+     *                    <table border="1" cellspacing="0" cellpadding="5px">
+     *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
+     *                    <tr><td>orderNumber</td><td>String</td><td>第三方流水号</td></tr>
+     *                    </table>
      * @param listener    监听器
-     * @throws RemoteException
+     * @see VASPayload
      * @see IVASListener
      */
-    void orderNumberQuery(String orderNumber, IVASListener listener);
+    void orderNumberQuery(VASPayload requestData, IVASListener listener);
 
     /**
      * 打印交易汇总
@@ -226,6 +235,7 @@ interface IVASInterface {
      * @param requestData 交易请求数据
      * @param listener    监听器
      * @throws RemoteException
+     * @see VASPayload
      * @see IVASListener
      */
     void doAction(VASPayload requestData, IVASListener listener);
@@ -236,6 +246,7 @@ interface IVASInterface {
      * @param requestData 请求数据
      * @param listener    监听器
      * @throws RemoteException
+     * @see VASPayload
      * @see IVASListener
      */
     void getCoupon(VASPayload requestData, IVASListener listener);
@@ -246,6 +257,7 @@ interface IVASInterface {
      * @param requestData 请求数据
      * @param listener    监听器
      * @throws RemoteException
+     * @see VASPayload
      * @see IVASListener
      */
     void voidCoupon(VASPayload requestData, IVASListener listener);
@@ -268,14 +280,20 @@ interface IVASInterface {
     /**
      * 小费调整
      *
-     * @return crontab表达式
+     * @param requestData 请求数据
+     * @param listener    监听器
+     * @see VASPayload
+     * @see IVASListener
      */
     void adjustTips(VASPayload requestData, IVASListener listener);
 
     /**
      * 离线
      *
-     * @return crontab表达式
+     * @param requestData 请求数据
+     * @param listener    监听器
+     * @see VASPayload
+     * @see IVASListener
      */
     void offline(VASPayload requestData, IVASListener listener);
 
@@ -283,14 +301,19 @@ interface IVASInterface {
     /**
      * 预授权撤销
      *
-     * @return crontab表达式
+     * @param requestData 请求数据
+     * @param listener    监听器
+     * @see VASPayload
+     * @see IVASListener
      */
     void preAuthorizationVoid(VASPayload requestData, IVASListener listener);
 
     /**
      * 扫码
-     * param requestData 请求数据
      *
+     * @param requestData 请求数据
+     * @param listener    监听器
+     * @see VASPayload
      * @see IVASListener
      */
     void scanCode(VASPayload requestData, IVASListener listener);
