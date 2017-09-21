@@ -2,34 +2,34 @@ package com.arke.vas.data;
 
 
 /**
- * 消息体信息，具体业务数据
+ * Message body information, specific business data
  *
  * @author hongqy
  */
 public class BodyData {
 
     /**
-     * 操作类型
+     * Type of operation
      */
     private String actionId;
 
     /**
-     * 第三方交易订单号
+     * Value added service order number
      */
     private String orderNumber;
 
     /**
-     * 交易金额
+     * Transaction amount
      */
     private Double amount;
 
     /**
-     * 当该值为true表示POS不打单，当该值为false或者不存在时表示由POS打
+     * When the value is true that POS does not print a small ticket, when the value is false or does not exist, said by the POS print
      */
     private Boolean needAppPrinted;
 
     /**
-     * 原交易凭证号
+     * Original transaction voucher number
      */
     private String originalVoucherNumber;
 

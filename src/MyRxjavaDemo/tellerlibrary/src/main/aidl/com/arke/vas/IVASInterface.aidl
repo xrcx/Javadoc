@@ -52,6 +52,52 @@ interface IVASInterface {
     void voided(in VASPayload requestData, IVASListener listener);
 
     /**
+     * 结算
+     *
+     * @param listener 监听器
+     * @throws RemoteException
+     * @see IVASListener
+     */
+    void settle(IVASListener listener);
+
+    /**
+     * 根据第三方交易流水获取交易记录
+     *
+     * @param orderNumber 第三方交易流水
+     * @param listener    监听器
+     * @throws RemoteException
+     * @see IVASListener
+     */
+    void orderNumberQuery(in VASPayload requestData, IVASListener listener);
+
+    /**
+     * 打印交易汇总
+     *
+     * @param listener 监听器
+     * @throws RemoteException
+     * @see IVASListener
+     */
+    void printTransactionSummary(IVASListener listener);
+
+    /**
+     * 打印交易明细
+     *
+     * @param listener 监听器
+     * @throws RemoteException
+     * @see IVASListener
+     */
+    void printTransactionDetail(IVASListener listener);
+
+    /**
+     * 终端密钥管理
+     *
+     * @param listener 监听器
+     * @throws RemoteException
+     * @see IVASListener
+     */
+    void terminalKeyManagement(IVASListener listener);
+
+     /**
      * 退货
      *
      * @param requestData 退货请求数据，JSON格式
@@ -131,54 +177,6 @@ interface IVASInterface {
      * @see VASPayload
      */
     void settlementAdjustment(in VASPayload requestData, IVASListener listener);
-
-
-    /**
-     * 结算
-     *
-     * @param listener 监听器
-     * @throws RemoteException
-     * @see IVASListener
-     */
-    void settle(IVASListener listener);
-
-    /**
-     * 根据第三方交易流水获取交易记录
-     *
-     * @param orderNumber 第三方交易流水
-     * @param listener    监听器
-     * @throws RemoteException
-     * @see IVASListener
-     */
-    void orderNumberQuery(in VASPayload requestData, IVASListener listener);
-
-    /**
-     * 打印交易汇总
-     *
-     * @param listener 监听器
-     * @throws RemoteException
-     * @see IVASListener
-     */
-    void printTransactionSummary(IVASListener listener);
-
-    /**
-     * 打印交易明细
-     *
-     * @param listener 监听器
-     * @throws RemoteException
-     * @see IVASListener
-     */
-    void printTransactionDetail(IVASListener listener);
-
-    /**
-     * 终端密钥管理
-     *
-     * @param listener 监听器
-     * @throws RemoteException
-     * @see IVASListener
-     */
-    void terminalKeyManagement(IVASListener listener);
-
     /**
      * 获取交易开关
      *
