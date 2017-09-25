@@ -1,4 +1,3 @@
-// IVASListener.aidl
 package com.arke.vas;
 import com.arke.vas.data.VASPayload;
 interface IVASListener {
@@ -12,7 +11,7 @@ interface IVASListener {
      *
      * @param value 反馈的信息
      */
-    void onNext(String value) ;
+    void onNext(in VASPayload responseData);
 
    /**
      * 交易结束

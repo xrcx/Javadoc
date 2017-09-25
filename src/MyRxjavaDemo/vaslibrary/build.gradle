@@ -31,7 +31,7 @@ dependencies {
 }
 
 task jarMyLib(type: Jar, dependsOn: ['build']) {
-    archiveName = 'value_added_api_V2.0.jar'
+    archiveName = 'vas_api.jar'
     from('build/intermediates/classes/release')
     destinationDir = file('build/libs')
     exclude('com/arke/BuildConfig.class')

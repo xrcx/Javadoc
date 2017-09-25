@@ -5,20 +5,15 @@ package com.arke.vas.data;
  */
 public class Card {
 
-    private String track1;
-    private String track2;
-    private String track3;
-    private String serviceCode;
-
     /**
      * 接触式卡.
      */
-    public static final int CARD_TYPE_IC = CardType.IC;
+    public static final int CARD_TYPE_IC = 1;
 
     /**
      * 非接卡类型.
      */
-    public static final int CARD_TYPE_CONTACTLESS = CardType.RF;
+    public static final int CARD_TYPE_CONTACTLESS = 2;
 
     /**
      * 磁卡类型.
@@ -29,6 +24,12 @@ public class Card {
      * 手动输入卡类型.
      */
     public static final int CARD_TYPE_MANUALLY_INPUT = 4;
+
+    private String track1;
+    private String track2;
+    private String track3;
+    private String serviceCode;
+
 
     /**
      * 卡类型.
