@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyRxjavaDemo.iml" filepath="$PROJECT_DIR$/MyRxjavaDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/vaslibrary/vaslibrary.iml" filepath="$PROJECT_DIR$/vaslibrary/vaslibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vasJavadoc/vasJavadoc.iml" filepath="$PROJECT_DIR$/vasJavadoc/vasJavadoc.iml" />
     </modules>
   </component>
 </project>
