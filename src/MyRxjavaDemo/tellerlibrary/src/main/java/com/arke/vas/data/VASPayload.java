@@ -4,11 +4,28 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * @auth hongqy
+ * Message carrier
+ * <p>
+ * 消息载体
  */
-
 public class VASPayload implements Parcelable {
+    /**
+     * Message header, Json format
+     * <p>
+     * 消息头信息，Json 格式
+     *
+     * @see HeadData
+     */
     private String head;
+
+
+    /**
+     * Message body information, Json format
+     * <p>
+     * 消息体信息，Json 格式
+     *
+     * @see BodyData
+     */
     private String body;
 
     public VASPayload(String body) {
@@ -36,10 +53,38 @@ public class VASPayload implements Parcelable {
         }
     };
 
+    /**
+     * Message header, Json format
+     * <p>
+     * 消息头信息，Json 格式
+     *
+     * @see HeadData
+     */
     public String getHead() {
         return head;
     }
 
+    public void setHead(String head) {
+        this.head = head;
+    }
+
+
+    /**
+     * Message body information, Json format
+     * <p>
+     * example of consumer request data:
+     * <p>
+     * <img src="../../../image/consume_request_emv_json.png">
+     * <p>
+     * ---------------------------
+     * 消息体信息，Json 格式
+     * <p>
+     * 消费请求数据例子：
+     * <p>
+     * <img src="../../../image/consume_request_emv_json.png">
+     *
+     * @see BodyData
+     */
     public String getBody() {
         return body;
     }

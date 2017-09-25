@@ -4,10 +4,14 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
+ * Message carrier
+ * <p>
  * 消息载体
  */
 public class VASPayload implements Parcelable {
     /**
+     * Message header, Json format
+     * <p>
      * 消息头信息，Json 格式
      *
      * @see HeadData
@@ -16,6 +20,8 @@ public class VASPayload implements Parcelable {
 
 
     /**
+     * Message body information, Json format
+     * <p>
      * 消息体信息，Json 格式
      *
      * @see BodyData
@@ -48,11 +54,9 @@ public class VASPayload implements Parcelable {
     };
 
     /**
+     * Message header, Json format
+     * <p>
      * 消息头信息，Json 格式
-     * <p>
-     * 例子：
-     * <p>
-     * <img src="../../../image/head_json.png">
      *
      * @see HeadData
      */
@@ -66,6 +70,13 @@ public class VASPayload implements Parcelable {
 
 
     /**
+     * Message body information, Json format
+     * <p>
+     * example of consumer request data:
+     * <p>
+     * <img src="../../../image/consume_request_emv_json.png">
+     * <p>
+     * ---------------------------
      * 消息体信息，Json 格式
      * <p>
      * 消费请求数据例子：

@@ -1,9 +1,11 @@
 package com.arke.vas.data;
 
-/**
- * @auth hongqy
- */
 
+/**
+ * Response to message body information, specific response data
+ * <p>
+ * 响应消息体信息，具体响应数据
+ */
 public class ResponseBodyData extends BodyData {
 
     /**

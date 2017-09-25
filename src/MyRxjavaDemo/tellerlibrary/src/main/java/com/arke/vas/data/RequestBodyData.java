@@ -1,154 +1,113 @@
 package com.arke.vas.data;
 
+
 /**
- * @auth hongqy
+ * Request to message body information, specific request data
+ * <p>
+ * 请求消息体信息，具体请求数据
  */
-
 public class RequestBodyData extends BodyData {
-
     /**
+     * Transaction amount
+     * <p>
      * 交易金额
      */
     private Double amount;
 
     /**
-     * 当该值为true表示POS不打单，当该值为false或者不存在时表示由POS打
+     * When the value is true that by the value added service to print a small ticket, when the value is false or does not exist that by the receipt application to print
+     * <p>
+     * 当该值为true表示由增值应用打小票，当该值为false或者不存在时表示由收单应用打小票
      */
     private Boolean needAppPrinted;
 
     /**
+     * Original transaction voucher number
+     * <p>
      * 原交易凭证号
      */
     private String originalVoucherNumber;
 
     /**
-     * 第三方传入的需要打印的备注信息
+     * Value added service need to print the note information
+     * <p>
+     * 增值服务需要打印的备注信息
      */
     private String inputRemarkInfo;
 
     /**
+     * Original transaction reference number
+     * <p>
      * 原交易参考号
      */
     private String originalReferenceNumber;
 
     /**
+     * Card number
+     * <p>
      * 卡号
      */
     private String cardNumber;
 
     /**
+     * Expiry date
+     * <p>
      * 有效期
      */
     private String expiryDate;
     /**
+     * Authorization method
+     * <p>
      * 授权方式
      */
     private String authorizationMethod;
     /**
+     * Authorization code
+     * <p>
      * 授权码
      */
     private String authorizationCode;
 
 
     /**
+     * Collected card information by the teller
+     * <p>
      * 收银台收集的卡信息
      *
      * @see TellerCardData
      */
-    public TellerCardData tellerCardData;
+    private TellerCardData tellerCardData;
 
-    /**
-     * 获取 原交易凭证号
-     *
-     * @return 原交易凭证号
-     */
-    public String getOriginalVoucherNumber() {
-        return originalVoucherNumber;
-    }
-
-
-    /**
-     * 设置 原交易凭证号
-     *
-     * @param originalVoucherNumber 原交易凭证号
-     */
-    public void setOriginalVoucherNumber(String originalVoucherNumber) {
-        this.originalVoucherNumber = originalVoucherNumber;
-    }
-
-    /**
-     * 获取 需要打印的备注信息
-     *
-     * @return 需要打印的备注信息
-     */
-    public String getInputRemarkInfo() {
-        return inputRemarkInfo;
-    }
-
-    /**
-     * 设置 需要打印的备注信息
-     *
-     * @param inputRemarkInfo 需要打印的备注信息
-     */
-    public void setInputRemarkInfo(String inputRemarkInfo) {
-        this.inputRemarkInfo = inputRemarkInfo;
-    }
-
-    /**
-     * 获取 交易金额
-     *
-     * @return 交易金额
-     */
     public Double getAmount() {
         return amount;
     }
 
-    /**
-     * 设置 交易金额
-     *
-     * @param amount 交易金额
-     */
     public void setAmount(Double amount) {
         this.amount = amount;
     }
 
-    /**
-     * 获取 是否由第三方打印
-     *
-     * @return 是否由第三方打印
-     */
     public Boolean getNeedAppPrinted() {
         return needAppPrinted;
     }
 
-    /**
-     * 设置 是否由第三方打印
-     *
-     * @param needAppPrinted 是否由第三方打印
-     */
     public void setNeedAppPrinted(Boolean needAppPrinted) {
         this.needAppPrinted = needAppPrinted;
     }
 
-
-    /**
-     * 获取 收银台交易数据
-     *
-     * @return 收银台交易数据
-     * @see TellerCardData
-     */
-    public TellerCardData getTellerCardData() {
-        return tellerCardData;
+    public String getOriginalVoucherNumber() {
+        return originalVoucherNumber;
     }
 
-    /**
-     * 设置 收银台交易数据
-     *
-     * @param tellerCardData 收银台交易数据
-     * @see TellerCardData
-     */
-    public void setTellerCardData(TellerCardData tellerCardData) {
-        this.tellerCardData = tellerCardData;
+    public void setOriginalVoucherNumber(String originalVoucherNumber) {
+        this.originalVoucherNumber = originalVoucherNumber;
+    }
+
+    public String getInputRemarkInfo() {
+        return inputRemarkInfo;
+    }
+
+    public void setInputRemarkInfo(String inputRemarkInfo) {
+        this.inputRemarkInfo = inputRemarkInfo;
     }
 
     public String getOriginalReferenceNumber() {
@@ -189,5 +148,13 @@ public class RequestBodyData extends BodyData {
 
     public void setAuthorizationCode(String authorizationCode) {
         this.authorizationCode = authorizationCode;
+    }
+
+    public TellerCardData getTellerCardData() {
+        return tellerCardData;
+    }
+
+    public void setTellerCardData(TellerCardData tellerCardData) {
+        this.tellerCardData = tellerCardData;
     }
 }

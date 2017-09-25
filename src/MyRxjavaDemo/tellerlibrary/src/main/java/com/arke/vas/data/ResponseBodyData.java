@@ -1,15 +1,32 @@
 package com.arke.vas.data;
 
-/**
- * @auth hongqy
- */
 
+/**
+ * Response to message body information, specific response data
+ * <p>
+ * 响应消息体信息，具体响应数据
+ */
 public class ResponseBodyData extends BodyData {
 
+    /**
+     * Transaction type, interface type
+     * <p>
+     * 接口Id
+     */
     private String interfaceId;
 
+    /**
+     * Transaction response code
+     * <p>
+     * 交易返回码
+     */
     private int responseCode = 0;
 
+    /**
+     * Transaction response information
+     * <p>
+     * 交易返回信息
+     */
     private String responseMessage;
 
     /**
@@ -19,6 +36,11 @@ public class ResponseBodyData extends BodyData {
      */
     private String transactionType;
 
+    /**
+     * Package name
+     * <p>
+     * 包名
+     */
     private String packageName;
 
     /**
@@ -29,9 +51,9 @@ public class ResponseBodyData extends BodyData {
     private String responseCodeThirtyNine;
 
     /**
-     * Transaction processing response information
+     * Field 39 response information
      * <p>
-     * 交易处理结果信息
+     * 39域返回信息
      */
     private String responseMessageThirtyNine;
 
