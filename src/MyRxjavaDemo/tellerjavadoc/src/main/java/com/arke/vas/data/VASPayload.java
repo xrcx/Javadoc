@@ -49,10 +49,6 @@ public class VASPayload implements Parcelable {
 
     /**
      * 消息头信息，Json 格式
-     * <p>
-     * 例子：
-     * <p>
-     * <img src="../../../image/head_json.png">
      *
      * @see HeadData
      */

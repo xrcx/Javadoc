@@ -6,17 +6,17 @@ package com.arke.vas.data;
 public class Card {
 
     /**
-     * 接触式卡.
+     * 接触式卡类型.
      */
-    public static final int CARD_TYPE_IC = CardType.IC;
+    public static final int CARD_TYPE_IC = 1;
 
     /**
      * 非接卡类型.
      */
-    public static final int CARD_TYPE_CONTACTLESS = CardType.RF;
+    public static final int CARD_TYPE_CONTACTLESS = 2;
 
     /**
-     * 磁卡类型.
+     * 磁卡类型类型.
      */
     public static final int CARD_TYPE_MAG = 3;
 
@@ -24,6 +24,27 @@ public class Card {
      * 手动输入卡类型.
      */
     public static final int CARD_TYPE_MANUALLY_INPUT = 4;
+
+    /**
+     * 磁卡信息，磁道一数据
+     */
+    private String track1;
+
+    /**
+     * 磁卡信息，磁道二数据
+     */
+    private String track2;
+
+    /**
+     * 磁卡信息，磁道三数据
+     */
+    private String track3;
+
+    /**
+     * 磁卡信息，服务代码表示银行卡有用的服务类型。
+     */
+    private String serviceCode;
+
 
     /**
      * 卡类型.
@@ -36,7 +57,7 @@ public class Card {
     private String pan;
 
     /**
-     * 卡有效期.
+     * 卡有效期
      */
     private String expiredDate;
 
@@ -84,5 +105,37 @@ public class Card {
 
     public void setPanSequenceNumber(String panSequenceNumber) {
         this.panSequenceNumber = panSequenceNumber;
+    }
+
+    public String getTrack1() {
+        return track1;
+    }
+
+    public void setTrack1(String track1) {
+        this.track1 = track1;
+    }
+
+    public String getTrack2() {
+        return track2;
+    }
+
+    public void setTrack2(String track2) {
+        this.track2 = track2;
+    }
+
+    public String getTrack3() {
+        return track3;
+    }
+
+    public void setTrack3(String track3) {
+        this.track3 = track3;
+    }
+
+    public String getServiceCode() {
+        return serviceCode;
+    }
+
+    public void setServiceCode(String serviceCode) {
+        this.serviceCode = serviceCode;
     }
 }

@@ -7,7 +7,7 @@ package com.arke.vas.data;
 public class TellerCardData {
 
     /**
-     * 卡信息。磁卡或者 CPU 卡。
+     * 卡信息，磁卡或者 CPU 卡相关信息。
      */
     private Card card;
 
