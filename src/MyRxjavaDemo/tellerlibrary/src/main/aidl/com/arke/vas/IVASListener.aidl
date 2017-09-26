@@ -2,6 +2,8 @@ package com.arke.vas;
 import com.arke.vas.data.VASPayload;
 interface IVASListener {
     /**
+     *The transaction begins
+     *
      * 交易开始
      */
     void onStart() ;

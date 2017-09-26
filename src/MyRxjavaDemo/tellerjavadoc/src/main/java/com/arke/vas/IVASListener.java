@@ -4,15 +4,23 @@ import com.arke.vas.data.VASPayload;
 
 
 /**
+ * Value added service listener
+ * <p>
  * 增值业务监听器
  */
 interface IVASListener {
     /**
+     * The transaction begins
+     * <p>
      * 交易开始
      */
     void onStart();
 
     /**
+     * Information feedback during the transaction
+     *
+     * @param message Feedback information
+     * --------------------------------------
      * 交易过程中,信息反馈
      *
      * @param message 反馈的信息
@@ -20,13 +28,23 @@ interface IVASListener {
     void onNext(String message);
 
     /**
+     *
+     * The end of the transaction
+     *
+     * @param responseData Response information
+     *                     <br/>
+     *                     Examples of consumption response：
+     *                     <br/>
+     *                     <img src="../../../image/sale_on_complete_en.png">
+     * @see VASPayload
+     * ---------------------------
      * 交易结束
      *
      * @param responseData 响应信息
      *                     <br/>
      *                     消费返回例子：
      *                     <br/>
-     *                     <img src="../../../image/consume_response.png">
+     *                     <img src="../../../image/sale_on_complete_ch.png">
      * @see VASPayload
      */
     void onComplete(VASPayload responseData);
