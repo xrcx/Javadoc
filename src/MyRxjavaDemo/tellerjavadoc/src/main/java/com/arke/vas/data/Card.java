@@ -47,7 +47,7 @@ public class Card {
 
 
     /**
-     * 卡类型.
+     * 卡类型(非接卡类型/接触式卡类型/磁卡类型类型/手动输入卡类型)
      */
     private int type;
 

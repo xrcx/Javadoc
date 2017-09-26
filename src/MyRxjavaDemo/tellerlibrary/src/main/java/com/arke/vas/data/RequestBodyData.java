@@ -17,7 +17,7 @@ public class RequestBodyData extends BodyData {
     /**
      * When the value is true that by the value added service to print a small ticket, when the value is false or does not exist that by the receipt application to print
      * <p>
-     * 当该值为true表示由增值应用打小票，当该值为false或者不存在时表示由收单应用打小票
+     * 当该值为 true ，表示由增值服务打小票。当该值为 false 或者不存在时，表示由收单应用打小票
      */
     private Boolean needAppPrinted;
 

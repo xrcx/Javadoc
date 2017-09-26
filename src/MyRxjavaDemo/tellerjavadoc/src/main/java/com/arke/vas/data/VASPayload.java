@@ -63,11 +63,10 @@ public class VASPayload implements Parcelable {
 
     /**
      * 消息体信息，Json 格式
-     * <p>
-     * 消费请求数据例子：
-     * <p>
-     * <img src="../../../image/consume_request_emv_json.png">
      *
+     * @return 消费请求数据例子：
+     * <p>
+     * <img src="../../../../image/consume_request_emv_json.png">
      * @see BodyData
      */
     public String getBody() {

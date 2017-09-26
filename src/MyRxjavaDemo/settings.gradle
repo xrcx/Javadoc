@@ -1,4 +1,4 @@
-include ':app', ':tellerlibrary',':tellerjavadoc'
+include ':app', ':tellerjavadoc'
 //,':tellerlibrary'
 //,':tellerjavadoc'
 //,':vaslibrary'

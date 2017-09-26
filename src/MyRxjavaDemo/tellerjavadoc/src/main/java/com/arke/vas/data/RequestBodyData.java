@@ -11,7 +11,7 @@ public class RequestBodyData extends BodyData {
     private Double amount;
 
     /**
-     * 当该值为true表示由增值应用打小票，当该值为false或者不存在时表示由收单应用打小票
+     * 当该值为 true，表示由增值服务打小票，当该值为 false 或者不存在时，表示由收单应用打小票
      */
     private Boolean needAppPrinted;
 
@@ -39,12 +39,10 @@ public class RequestBodyData extends BodyData {
      * 有效期
      */
     private String expiryDate;
-
     /**
      * 授权方式
      */
     private String authorizationMethod;
-
     /**
      * 授权码
      */

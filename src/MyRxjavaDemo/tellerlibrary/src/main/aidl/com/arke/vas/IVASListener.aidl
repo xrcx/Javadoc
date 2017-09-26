@@ -22,7 +22,7 @@ interface IVASListener {
      * <br/>
      * 消费返回例子：
      * <br/>
-     * <img src="../../../image/consume_response_json.png">
+     * <img src="../../../../image/sale_on_complete_ch.png">
      */
     void onComplete(in VASPayload responseData);
 }

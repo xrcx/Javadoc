@@ -32,7 +32,7 @@ interface IVASInterface {
      *                    <p>
      *                    消费请求数据例子：
      *                    <br/>
-     *                    <img src="../../../image/consume_payload.png">
+     *                    <img src="../../../../image/consume_payload.png">
      * @throws RemoteException
      * @see VASPayload
      * @see IVASListener
