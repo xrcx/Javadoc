@@ -15,9 +15,9 @@ interface IVASListener {
     /**
      * 交易过程中,信息反馈
      *
-     * @param message 反馈的信息
+     * @param responseData 反馈的信息
      */
-    void onNext(String message);
+    void onNext(VASPayload responseData);
 
     /**
      * 交易结束

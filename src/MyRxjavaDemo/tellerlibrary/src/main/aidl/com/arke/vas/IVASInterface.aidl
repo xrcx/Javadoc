@@ -1,6 +1,11 @@
 package com.arke.vas;
 import com.arke.vas.IVASListener;
 import com.arke.vas.data.VASPayload;
+/**
+ * Value added service interface
+ *<p>
+ * 增值业务接口
+ */
 interface IVASInterface {
    /**
         * 签到

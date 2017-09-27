@@ -5,6 +5,8 @@ import android.os.RemoteException;
 import com.arke.vas.data.VASPayload;
 
 /**
+ * Value added service interface
+ *
  * 增值业务接口
  */
 interface IVASInterface {
