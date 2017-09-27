@@ -3,7 +3,7 @@ import com.arke.vas.data.VASPayload;
 /**
  * Value added service listener
  * <p>
- * 增值业务监听器
+ * 增值服务监听器
  */
 interface IVASListener {
     /**

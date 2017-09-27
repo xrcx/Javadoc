@@ -5,7 +5,7 @@ import android.os.RemoteException;
 import com.arke.vas.data.VASPayload;
 
 /**
- * 增值业务接口
+ * 增值服务接口
  */
 interface IVASInterface {
     /**
@@ -20,6 +20,7 @@ interface IVASInterface {
      * 消费
      *
      * @param requestData 消费 body 请求数据，JSON格式
+     *                    <p>
      *                    <table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
      *                    <tr><td>amount</td><td>Double</td><td>交易金额</td></tr>
@@ -31,7 +32,7 @@ interface IVASInterface {
      * @param listener    监听器
      *                    <p>
      *                    消费请求数据例子：
-     *                    <br/>
+     *                    <p>
      *                    <img src="../../../../image/consume_payload.png">
      * @throws RemoteException
      * @see VASPayload
@@ -43,12 +44,12 @@ interface IVASInterface {
      * 消费撤销
      *
      * @param requestData 消费撤销 body 请求数据，JSON格式
-     *                    <table border="1" cellspacing="0" cellpadding="5px">
+     *                    <p><table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
      *                    <tr><td>originalVoucherNumber</td><td>String</td><td>原交易凭证号</td></tr>
-     *                    <tr><td>orderNumber</td><td>String</td><td>第三方交易订单号</td></tr>
-     *                    <tr><td>needAppPrinted</td><td>Boolean</td><td>是否需要第三方打单</td></tr>
-     *                    <tr><td>inputRemarkInfo</td><td>String</td><td>第三方传入的需要打印的备注信息</td></tr>
+     *                    <tr><td>orderNumber</td><td>String</td><td>第三方增值服务订单号</td></tr>
+     *                    <tr><td>needAppPrinted</td><td>Boolean</td><td>是否需要第三方增值服务打单</td></tr>
+     *                    <tr><td>inputRemarkInfo</td><td>String</td><td>第三方增值服务传入的需要打印的备注信息</td></tr>
      *                    </table>
      * @param listener    监听器
      *
@@ -69,12 +70,12 @@ interface IVASInterface {
     void settle(IVASListener listener);
 
     /**
-     * 根据增值应用流水获取交易记录
+     * 根据增值服务流水获取交易记录
      *
      * @param requestData body 请求数据，JSON格式
-     *                    <table border="1" cellspacing="0" cellpadding="5px">
+     *                    <p><table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
-     *                    <tr><td>orderNumber</td><td>String</td><td>第三方流水号</td></tr>
+     *                    <tr><td>orderNumber</td><td>String</td><td>第三方增值服务流水号</td></tr>
      *                    </table>
      * @param listener    监听器
      * @see VASPayload
@@ -112,7 +113,7 @@ interface IVASInterface {
      * 退货
      *
      * @param requestData 退货 body 请求数据，JSON格式
-     *                    <table border="1" cellspacing="0" cellpadding="5px">
+     *                    <p><table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
      *                    <tr><td>amount</td><td>Double</td><td>交易金额</td></tr>
      *                    <tr><td>originalReferenceNumber</td><td>String</td><td>原交易参考号</td></tr>
@@ -131,7 +132,7 @@ interface IVASInterface {
      * 预授权
      *
      * @param requestData body 请求数据，JSON格式
-     *                    <table border="1" cellspacing="0" cellpadding="5px">
+     *                    <p><table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
      *                    <tr><td>amount</td><td>Double</td><td>交易金额</td></tr>
      *                    <tr><td>cardNumber</td><td>Double</td><td>卡号</td></tr>
@@ -162,7 +163,7 @@ interface IVASInterface {
      * 离线结算
      *
      * @param requestData body 请求数据，JSON格式
-     *                    <table border="1" cellspacing="0" cellpadding="5px">
+     *                    <p><table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
      *                    <tr><td>cardNumber</td><td>Double</td><td>卡号</td></tr>
      *                    <tr><td>expiryDate</td><td>String</td><td>有效期</td></tr>
@@ -182,7 +183,7 @@ interface IVASInterface {
      * 离线结算调整
      *
      * @param requestData body 请求数据，JSON格式
-     *                    <table border="1" cellspacing="0" cellpadding="5px">
+     *                    <p><table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
      *                    <tr><td>originalVoucherNumber</td><td>String</td><td>原交易凭证号</td></tr>
      *                    </table>
@@ -203,7 +204,7 @@ interface IVASInterface {
      * @throws RemoteException <p>
      *                         <br/>
      *                         字段说明
-     *                         <br/>
+     *                         <p>
      *                         <table border="1" cellspacing="0" cellpadding="5px">
      *                         <tr><th>字段</th><th>说明</th></tr>
      *                         <tr><td>CONSUME</td><td>消费</td></tr>
@@ -227,7 +228,7 @@ interface IVASInterface {
      *                         <br/>
      *                         <p>
      *                         例子：
-     *                         <br/>
+     *                         <p>
      *                         <img src="get_action_config_json.png">
      */
     String getActionConfig();
@@ -237,7 +238,7 @@ interface IVASInterface {
      * 获取 AID 列表
      *
      * @return AIDS 列表，JSON格式，true 代表收单应用完全匹配，false 代表收单应用部分匹配
-     * @throws RemoteException <br/>
+     * @throws RemoteException <p>
      *                         返回例子
      *                         <p>
      *                         <br/>

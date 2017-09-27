@@ -4,10 +4,10 @@ import com.arke.vas.data.VASPayload;
 /**
  * Value added service interface
  * <p>
- * 增值业务接口
+ * 增值服务接口
  */
 interface IVASInterface {
-      /**
+  /**
         * 签到
         *
         * @param listener 监听器
@@ -19,6 +19,7 @@ interface IVASInterface {
         * Sale transactions
         *
         * @param requestData Consumption body request data, JSON format
+        *                    <p>
         *                    <table border="1" cellspacing="0" cellpadding="5px">
         *                    <tr><th>Parameter</th><th>Type</th><th>Description</th></tr>
         *                    <tr><td>amount</td><td>Double</td><td>Transaction amount</td></tr>
@@ -30,16 +31,17 @@ interface IVASInterface {
         * @param listener    Listener
         *                    <p>
         *                    Examples of consumption request data：
-        *                    <br/>
+        *                    <p>
         *                    <img src="../../../../image/consume_payload.png">
         * @throws RemoteException
         * @see VASPayload
         * @see IVASListener
-        * <p>
+        *
         * ---------------------------
         * 消费
         *
         * @param requestData 消费 body 请求数据，JSON格式
+        *                    <p>
         *                    <table border="1" cellspacing="0" cellpadding="5px">
         *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
         *                    <tr><td>amount</td><td>Double</td><td>交易金额</td></tr>
@@ -51,7 +53,7 @@ interface IVASInterface {
         * @param listener    监听器
         *                    <p>
         *                    消费请求数据例子：
-        *                    <br/>
+        *                    <p>
         *                    <img src="../../../../image/consume_payload.png">
         * @throws RemoteException
         * @see VASPayload
@@ -63,6 +65,7 @@ interface IVASInterface {
         * Sale void transactions
         *
         * @param requestData Sale void body request data, JSON format
+        * <p>
         *                    <table border="1" cellspacing="0" cellpadding="5px">
         *                    <tr><th>Parameter</th><th>Type</th><th>Description</th></tr>
         *                    <tr><td>originalVoucherNumber</td><td>String</td><td>Original transaction voucher number</td></tr>
@@ -78,12 +81,12 @@ interface IVASInterface {
         * 消费撤销
         *
         * @param requestData 消费撤销 body 请求数据，JSON格式
-        *                    <table border="1" cellspacing="0" cellpadding="5px">
+        *                    <p><table border="1" cellspacing="0" cellpadding="5px">
         *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
         *                    <tr><td>originalVoucherNumber</td><td>String</td><td>原交易凭证号</td></tr>
-        *                    <tr><td>orderNumber</td><td>String</td><td>第三方交易订单号</td></tr>
-        *                    <tr><td>needAppPrinted</td><td>Boolean</td><td>是否需要第三方打单</td></tr>
-        *                    <tr><td>inputRemarkInfo</td><td>String</td><td>第三方传入的需要打印的备注信息</td></tr>
+        *                    <tr><td>orderNumber</td><td>String</td><td>第三方增值服务订单号</td></tr>
+        *                    <tr><td>needAppPrinted</td><td>Boolean</td><td>是否需要第三方增值服务打单</td></tr>
+        *                    <tr><td>inputRemarkInfo</td><td>String</td><td>第三方增值服务传入的需要打印的备注信息</td></tr>
         *                    </table>
         * @param listener    监听器
         *
@@ -109,7 +112,7 @@ interface IVASInterface {
         * According to value added service order number to get transaction record
         *
         * @param requestData Body request data, JSON format
-        *                    <table border="1" cellspacing="0" cellpadding="5px">
+        *                    <p><table border="1" cellspacing="0" cellpadding="5px">
         *                    <tr><th>Parameter</th><th>Type</th><th>Description</th></tr>
         *                    <tr><td>orderNumber</td><td>String</td><td>Value added service order number</td></tr>
         *                    </table>
@@ -117,12 +120,12 @@ interface IVASInterface {
         * @see VASPayload
         * @see IVASListener
         * ----------------------------------------
-        * 根据增值应用流水获取交易记录
+        * 根据增值服务流水获取交易记录
         *
         * @param requestData body 请求数据，JSON格式
-        *                    <table border="1" cellspacing="0" cellpadding="5px">
+        *                    <p><table border="1" cellspacing="0" cellpadding="5px">
         *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
-        *                    <tr><td>orderNumber</td><td>String</td><td>第三方流水号</td></tr>
+        *                    <tr><td>orderNumber</td><td>String</td><td>第三方增值服务流水号</td></tr>
         *                    </table>
         * @param listener    监听器
         * @see VASPayload
