@@ -108,7 +108,7 @@ interface IVASInterface {
         *                    <tr><td>originalVoucherNumber</td><td>String</td><td>原交易凭证号</td></tr>
         *                    <tr><td>orderNumber</td><td>String</td><td>第三方增值服务订单号</td></tr>
         *                    <tr><td>needAppPrinted</td><td>Boolean</td><td>是否需要第三方增值服务打单</td></tr>
-        *                    <tr><td>inputRemarkInfo</td><td>String</td><td>第三方增值服务传入的需要打印的备注信息</td></tr>
+        *                    <tr><td>inputRemarkInfo</td><td>String</td><td>增值服务传入的需要打印的备注信息</td></tr>
         *                    </table>
 
         *                    <p>
@@ -495,7 +495,7 @@ interface IVASInterface {
         *
         * 执行计划任务
         *
-        * @param listener
+        * @param listener    监听器
         * @see IVASListener
         */
        void doTask(IVASListener listener);

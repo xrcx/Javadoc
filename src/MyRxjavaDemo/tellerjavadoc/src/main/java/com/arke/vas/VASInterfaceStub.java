@@ -30,9 +30,9 @@ public class VASInterfaceStub extends IVASInterface.Stub {
      *                    <table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
      *                    <tr><td>amount</td><td>Double</td><td>交易金额</td></tr>
-     *                    <tr><td>orderNumber</td><td>String</td><td>第三方交易订单号</td></tr>
-     *                    <tr><td>needAppPrinted</td><td>Boolean</td><td>是否需要第三方打单</td></tr>
-     *                    <tr><td>inputRemarkInfo</td><td>String</td><td>第三方传入的需要打印的备注信息</td></tr>
+     *                    <tr><td>orderNumber</td><td>String</td><td>第三方增值服务订单号</td></tr>
+     *                    <tr><td>needAppPrinted</td><td>Boolean</td><td>是否需要第三方增值服务打单</td></tr>
+     *                    <tr><td>inputRemarkInfo</td><td>String</td><td>增值服务传入的需要打印的备注信息</td></tr>
      *                    <tr><td>tellerCardData</td><td>TellerCardData</td><td>收银台收集的卡信息</td></tr>
      *                    </table>
      *                    <p>
@@ -66,7 +66,7 @@ public class VASInterfaceStub extends IVASInterface.Stub {
      *                    <tr><td>originalVoucherNumber</td><td>String</td><td>原交易凭证号</td></tr>
      *                    <tr><td>orderNumber</td><td>String</td><td>第三方增值服务订单号</td></tr>
      *                    <tr><td>needAppPrinted</td><td>Boolean</td><td>是否需要第三方增值服务打单</td></tr>
-     *                    <tr><td>inputRemarkInfo</td><td>String</td><td>第三方增值服务传入的需要打印的备注信息</td></tr>
+     *                    <tr><td>inputRemarkInfo</td><td>String</td><td>增值服务传入的需要打印的备注信息</td></tr>
      *                    </table>
      *                    <p>
      *                    <p>
@@ -86,7 +86,7 @@ public class VASInterfaceStub extends IVASInterface.Stub {
     /**
      * 结算
      *
-     * @param listener
+     * @param listener 监听器
      * @throws RemoteException
      * @see IVASListener
      */
@@ -98,7 +98,10 @@ public class VASInterfaceStub extends IVASInterface.Stub {
     /**
      * 根据增值服务流水获取交易记录
      *
-     * @param requestData body 请求数据，JSON格式
+     * @param requestData 根据流水获取交易记录，请求参数
+     *                    <p>
+     *                    消息体(body)请求参数如下，JSON格式，可选
+     *                    <p>
      *                    <p><table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
      *                    <tr><td>orderNumber</td><td>String</td><td>第三方增值服务流水号</td></tr>
@@ -151,14 +154,16 @@ public class VASInterfaceStub extends IVASInterface.Stub {
     /**
      * 退货
      *
-     * @param requestData 退货 body 请求数据，JSON格式
+     * @param requestData 退货交易，请求参数
+     *                    <p>
+     *                    消息体(body)请求参数如下，JSON格式，可选
      *                    <p><table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
      *                    <tr><td>amount</td><td>Double</td><td>交易金额</td></tr>
      *                    <tr><td>originalReferenceNumber</td><td>String</td><td>原交易参考号</td></tr>
-     *                    <tr><td>orderNumber</td><td>String</td><td>第三方交易订单号</td></tr>
-     *                    <tr><td>needAppPrinted</td><td>Boolean</td><td>是否需要第三方打单</td></tr>
-     *                    <tr><td>inputRemarkInfo</td><td>String</td><td>第三方传入的需要打印的备注信息</td></tr>
+     *                    <tr><td>orderNumber</td><td>String</td><td>第三方增值服务订单号</td></tr>
+     *                    <tr><td>needAppPrinted</td><td>Boolean</td><td>是否需要第三方增值服务打单</td></tr>
+     *                    <tr><td>inputRemarkInfo</td><td>String</td><td>增值服务传入的需要打印的备注信息</td></tr>
      *                    </table>
      * @param listener    监听器
      * @throws RemoteException
@@ -173,14 +178,16 @@ public class VASInterfaceStub extends IVASInterface.Stub {
     /**
      * 预授权
      *
-     * @param requestData body 请求数据，JSON格式
+     * @param requestData 预授权交易，请求参数
+     *                    <p>
+     *                    <li>消息体(body)请求参数如下，JSON格式，可选<li/>
      *                    <p><table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
      *                    <tr><td>amount</td><td>Double</td><td>交易金额</td></tr>
      *                    <tr><td>cardNumber</td><td>Double</td><td>卡号</td></tr>
-     *                    <tr><td>orderNumber</td><td>String</td><td>第三方交易订单号</td></tr>
-     *                    <tr><td>needAppPrinted</td><td>Boolean</td><td>是否需要第三方打单</td></tr>
-     *                    <tr><td>inputRemarkInfo</td><td>String</td><td>第三方传入的需要打印的备注信息</td></tr>
+     *                    <tr><td>orderNumber</td><td>String</td><td>第三方增值服务订单号</td></tr>
+     *                    <tr><td>needAppPrinted</td><td>Boolean</td><td>是否需要第三方增值服务打单</td></tr>
+     *                    <tr><td>inputRemarkInfo</td><td>String</td><td>增值服务传入的需要打印的备注信息</td></tr>
      *                    </table>
      * @param listener    监听器
      * @throws RemoteException
@@ -208,7 +215,8 @@ public class VASInterfaceStub extends IVASInterface.Stub {
     /**
      * 离线结算
      *
-     * @param requestData body 请求数据，JSON格式
+     * @param requestData 离线结算交易，请求参数
+     *                    <p>消息体(body)请求参数如下，JSON格式，可选
      *                    <p><table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
      *                    <tr><td>cardNumber</td><td>Double</td><td>卡号</td></tr>
@@ -315,13 +323,14 @@ public class VASInterfaceStub extends IVASInterface.Stub {
     /**
      * 获得优惠券
      *
-     * @param requestData
-     * @param listener
+     * @param requestData 请求数据
+     * @param listener    监听器
      * @throws RemoteException
      * @see VASPayload
      * @see IVASListener
      */
-    @Override
+    e
+
     public void getCoupon(VASPayload requestData, IVASListener listener) throws RemoteException {
 
     }
@@ -329,8 +338,8 @@ public class VASInterfaceStub extends IVASInterface.Stub {
     /**
      * 撤销优惠券
      *
-     * @param requestData
-     * @param listener
+     * @param requestData 请求数据
+     * @param listener    监听器
      * @throws RemoteException
      * @see VASPayload
      * @see IVASListener
@@ -343,7 +352,7 @@ public class VASInterfaceStub extends IVASInterface.Stub {
     /**
      * 执行计划任务
      *
-     * @param listener
+     * @param listener 监听器
      * @see IVASListener
      */
     @Override
@@ -354,7 +363,7 @@ public class VASInterfaceStub extends IVASInterface.Stub {
     /**
      * 获取计划任务
      *
-     * @return crontab表达式 crontab expression
+     * @return crontab表达式
      */
     @Override
     public String getTaskConfig() throws RemoteException {
@@ -364,8 +373,8 @@ public class VASInterfaceStub extends IVASInterface.Stub {
     /**
      * 小费调整
      *
-     * @param requestData
-     * @param listener
+     * @param requestData 请求数据
+     * @param listener    监听器
      * @see VASPayload
      * @see IVASListener
      */
@@ -377,8 +386,8 @@ public class VASInterfaceStub extends IVASInterface.Stub {
     /**
      * 离线
      *
-     * @param requestData
-     * @param listener
+     * @param requestData 请求数据
+     * @param listener    监听器
      * @see VASPayload
      * @see IVASListener
      */
@@ -390,8 +399,8 @@ public class VASInterfaceStub extends IVASInterface.Stub {
     /**
      * 扫码
      *
-     * @param requestData
-     * @param listener
+     * @param requestData 请求数据
+     * @param listener    监听器
      * @see VASPayload
      * @see IVASListener
      */
