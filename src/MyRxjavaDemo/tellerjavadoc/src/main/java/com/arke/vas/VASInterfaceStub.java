@@ -329,8 +329,6 @@ public class VASInterfaceStub extends IVASInterface.Stub {
      * @see VASPayload
      * @see IVASListener
      */
-    e
-
     public void getCoupon(VASPayload requestData, IVASListener listener) throws RemoteException {
 
     }
