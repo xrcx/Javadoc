@@ -19,7 +19,9 @@ interface IVASInterface {
     /**
      * 消费
      *
-     * @param requestData 消费 body 请求数据，JSON格式
+     * @param requestData 消费交易，请求参数
+     *                    <p>
+     *                        <li>消息体(body)请求参数如下，JSON格式，可选<li/>
      *                    <p>
      *                    <table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
@@ -29,11 +31,16 @@ interface IVASInterface {
      *                    <tr><td>inputRemarkInfo</td><td>String</td><td>第三方传入的需要打印的备注信息</td></tr>
      *                    <tr><td>tellerCardData</td><td>TellerCardData</td><td>收银台收集的卡信息</td></tr>
      *                    </table>
+
+     *                    <p>
+     *                    消费，请求参数简单例子(消息体数据)：
+     *                    <p>
+     *                    <img src="../../../image/sale_request_data_1.png">
+     *                    <p>
+     *                    消费，请求带有 TellerCardData 参数例子(消息体数据)：
+     *                    <p>
+     *                    <img src="../../../image/sale_request_data_2.png">
      * @param listener    监听器
-     *                    <p>
-     *                    消费请求数据例子：
-     *                    <p>
-     *                    <img src="../../../../image/consume_payload.png">
      * @throws RemoteException
      * @see VASPayload
      * @see IVASListener
@@ -43,16 +50,23 @@ interface IVASInterface {
     /**
      * 消费撤销
      *
-     * @param requestData 消费撤销 body 请求数据，JSON格式
-     *                    <p><table border="1" cellspacing="0" cellpadding="5px">
+     * @param requestData 消费撤销交易，请求参数
+     *                    <p>
+     *                    消息体(body)请求参数如下，JSON格式，可选
+     *                    <p>
+     *                    <table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
      *                    <tr><td>originalVoucherNumber</td><td>String</td><td>原交易凭证号</td></tr>
      *                    <tr><td>orderNumber</td><td>String</td><td>第三方增值服务订单号</td></tr>
      *                    <tr><td>needAppPrinted</td><td>Boolean</td><td>是否需要第三方增值服务打单</td></tr>
      *                    <tr><td>inputRemarkInfo</td><td>String</td><td>第三方增值服务传入的需要打印的备注信息</td></tr>
      *                    </table>
+
+     *                    <p>
+     *                    消费撤销，请求参数例子(消息体数据)：
+     *                    <p>
+     *                    <img src="../../../image/void_request_data.png">
      * @param listener    监听器
-     *
      * @throws RemoteException
      * @see VASPayload
      * @see IVASListener
@@ -72,7 +86,7 @@ interface IVASInterface {
     /**
      * 根据增值服务流水获取交易记录
      *
-     * @param requestData body 请求数据，JSON格式
+     * @param requestData 消息体请求参数，JSON格式
      *                    <p><table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
      *                    <tr><td>orderNumber</td><td>String</td><td>第三方增值服务流水号</td></tr>
@@ -112,7 +126,9 @@ interface IVASInterface {
     /**
      * 退货
      *
-     * @param requestData 退货 body 请求数据，JSON格式
+     * @param requestData 退货交易，请求参数
+     *                    <p>
+     *                        消息体(body)请求参数如下，JSON格式，可选
      *                    <p><table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
      *                    <tr><td>amount</td><td>Double</td><td>交易金额</td></tr>
@@ -131,7 +147,9 @@ interface IVASInterface {
     /**
      * 预授权
      *
-     * @param requestData body 请求数据，JSON格式
+     * @param requestData 预授权交易，请求参数
+     *                    <p>
+     *                        <li>消息体(body)请求参数如下，JSON格式，可选<li/>
      *                    <p><table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
      *                    <tr><td>amount</td><td>Double</td><td>交易金额</td></tr>
@@ -162,7 +180,8 @@ interface IVASInterface {
     /**
      * 离线结算
      *
-     * @param requestData body 请求数据，JSON格式
+     * @param requestData 离线结算交易，请求参数
+     *                    <p>消息体(body)请求参数如下，JSON格式，可选
      *                    <p><table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
      *                    <tr><td>cardNumber</td><td>Double</td><td>卡号</td></tr>
@@ -182,15 +201,14 @@ interface IVASInterface {
     /**
      * 离线结算调整
      *
-     * @param requestData body 请求数据，JSON格式
+     * @param requestData 离线结算调整，请求参数
+     *                    <p>消息体(body)请求参数如下，JSON格式，可选
      *                    <p><table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
      *                    <tr><td>originalVoucherNumber</td><td>String</td><td>原交易凭证号</td></tr>
      *                    </table>
      * @param listener    监听器
-     *                    <p>
-     *                    离线结算调整请求数据例子：
-     *                    <br/>
+     *
      * @throws RemoteException
      * @see VASPayload
      * @see IVASListener
@@ -201,13 +219,11 @@ interface IVASInterface {
      * 获取交易开关
      *
      * @return 交易开关信息，JSON格式，true 代表收单应用支持该交易，false 代表收单应用不支持该交易
-     * @throws RemoteException <p>
-     *                         <br/>
+    <p>
      *                         字段说明
-     *                         <p>
-     *                         <table border="1" cellspacing="0" cellpadding="5px">
+     *                         <p><table border="1" cellspacing="0" cellpadding="5px">
      *                         <tr><th>字段</th><th>说明</th></tr>
-     *                         <tr><td>CONSUME</td><td>消费</td></tr>
+     *                         <tr><td>SALE</td><td>消费</td></tr>
      *                         <tr><td>VOID</td><td>撤销</td></tr>
      *                         <tr><td>SIGNIN</td><td>签到</td></tr>
      *                         <tr><td>SETTLE</td><td>结算</td></tr>
@@ -227,9 +243,10 @@ interface IVASInterface {
      *                         </table>
      *                         <br/>
      *                         <p>
-     *                         例子：
+     *                         返回数据的例子：
      *                         <p>
-     *                         <img src="get_action_config_json.png">
+     *                         <img src="../../../image/get_action_config_json.png">
+     * @throws RemoteException
      */
     String getActionConfig();
 
@@ -238,19 +255,19 @@ interface IVASInterface {
      * 获取 AID 列表
      *
      * @return AIDS 列表，JSON格式，true 代表收单应用完全匹配，false 代表收单应用部分匹配
-     * @throws RemoteException <p>
+    <p>
      *                         返回例子
      *                         <p>
-     *                         <br/>
-     *                         <img src="get_aids_json.png">
+     *                         <img src="../../../image/get_aids_json.png">
+     * @throws RemoteException
      */
     String getAids();
 
     /**
      * 预留交易扩展接口(暂不使用)
      *
-     * @param requestData
-     * @param listener
+     * @param requestData 请求数据
+     * @param listener    监听器
      * @throws RemoteException
      * @see VASPayload
      * @see IVASListener
@@ -260,8 +277,8 @@ interface IVASInterface {
     /**
      * 获得优惠券
      *
-     * @param requestData
-     * @param listener
+     * @param requestData 请求数据
+     * @param listener    监听器
      * @throws RemoteException
      * @see VASPayload
      * @see IVASListener
@@ -271,8 +288,8 @@ interface IVASInterface {
     /**
      * 撤销优惠券
      *
-     * @param requestData
-     * @param listener
+     * @param requestData 请求数据
+     * @param listener    监听器
      * @throws RemoteException
      * @see VASPayload
      * @see IVASListener
@@ -282,7 +299,7 @@ interface IVASInterface {
     /**
      * 执行计划任务
      *
-     * @param listener
+     * @param listener    监听器
      * @see IVASListener
      */
     void doTask(IVASListener listener);
@@ -297,8 +314,8 @@ interface IVASInterface {
     /**
      * 小费调整
      *
-     * @param requestData
-     * @param listener
+     * @param requestData 请求数据
+     * @param listener    监听器
      * @see VASPayload
      * @see IVASListener
      */
@@ -307,8 +324,8 @@ interface IVASInterface {
     /**
      * 离线
      *
-     * @param requestData
-     * @param listener
+     * @param requestData 请求数据
+     * @param listener    监听器
      * @see VASPayload
      * @see IVASListener
      */
@@ -318,8 +335,8 @@ interface IVASInterface {
     /**
      * 扫码
      *
-     * @param requestData
-     * @param listener
+     * @param requestData 请求数据
+     * @param listener    监听器
      * @see VASPayload
      * @see IVASListener
      */
