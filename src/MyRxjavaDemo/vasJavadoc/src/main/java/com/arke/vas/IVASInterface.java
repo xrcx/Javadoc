@@ -5,9 +5,7 @@ import android.os.RemoteException;
 import com.arke.vas.data.VASPayload;
 
 /**
- * Value added service interface
- *
- * 增值业务接口
+ * 增值服务接口
  */
 interface IVASInterface {
     /**
@@ -21,20 +19,28 @@ interface IVASInterface {
     /**
      * 消费
      *
-     * @param requestData 消费 body 请求数据，JSON格式
+     * @param requestData 消费交易，请求参数
+     *                    <p>
+     *                    <li>消息体(body)请求参数如下，JSON格式，可选<li/>
+     *                    <p>
      *                    <table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
      *                    <tr><td>amount</td><td>Double</td><td>交易金额</td></tr>
-     *                    <tr><td>orderNumber</td><td>String</td><td>第三方交易订单号</td></tr>
-     *                    <tr><td>needAppPrinted</td><td>Boolean</td><td>是否需要第三方打单</td></tr>
-     *                    <tr><td>inputRemarkInfo</td><td>String</td><td>第三方传入的需要打印的备注信息</td></tr>
+     *                    <tr><td>orderNumber</td><td>String</td><td>第三方增值服务订单号</td></tr>
+     *                    <tr><td>needAppPrinted</td><td>Boolean</td><td>是否需要第三方增值服务打单</td></tr>
+     *                    <tr><td>inputRemarkInfo</td><td>String</td><td>增值服务传入的需要打印的备注信息</td></tr>
      *                    <tr><td>tellerCardData</td><td>TellerCardData</td><td>收银台收集的卡信息</td></tr>
      *                    </table>
-     * @param listener    监听器
      *                    <p>
-     *                    消费请求数据例子：
-     *                    <br/>
-     *                    <img src="../../../image/consume_payload.png">
+     *                    <p>
+     *                    消费，请求参数简单例子(消息体数据)：
+     *                    <p>
+     *                    <img src="../../../image/sale_request_data_1.png">
+     *                    <p>
+     *                    消费，请求带有 TellerCardData 参数例子(消息体数据)：
+     *                    <p>
+     *                    <img src="../../../image/sale_request_data_2.png">
+     * @param listener    监听器
      * @throws RemoteException
      * @see VASPayload
      * @see IVASListener
@@ -44,20 +50,29 @@ interface IVASInterface {
     /**
      * 消费撤销
      *
-     * @param requestData 消费撤销 body 请求数据，JSON格式
+     * @param requestData 消费撤销交易，请求参数
+     *                    <p>
+     *                    消息体(body)请求参数如下，JSON格式，可选
+     *                    <p>
      *                    <table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
      *                    <tr><td>originalVoucherNumber</td><td>String</td><td>原交易凭证号</td></tr>
-     *                    <tr><td>orderNumber</td><td>String</td><td>第三方交易订单号</td></tr>
-     *                    <tr><td>needAppPrinted</td><td>Boolean</td><td>是否需要第三方打单</td></tr>
-     *                    <tr><td>inputRemarkInfo</td><td>String</td><td>第三方传入的需要打印的备注信息</td></tr>
+     *                    <tr><td>orderNumber</td><td>String</td><td>第三方增值服务订单号</td></tr>
+     *                    <tr><td>needAppPrinted</td><td>Boolean</td><td>是否需要第三方增值服务打单</td></tr>
+     *                    <tr><td>inputRemarkInfo</td><td>String</td><td>增值服务传入的需要打印的备注信息</td></tr>
      *                    </table>
+     *                    <p>
+     *                    <p>
+     *                    消费撤销，请求参数例子(消息体数据)：
+     *                    <p>
+     *                    <img src="../../../image/void_request_data.png">
      * @param listener    监听器
      * @throws RemoteException
      * @see VASPayload
      * @see IVASListener
      */
     void voided(VASPayload requestData, IVASListener listener);
+
 
     /**
      * 结算
@@ -69,12 +84,15 @@ interface IVASInterface {
     void settle(IVASListener listener);
 
     /**
-     * 根据第三方交易流水获取交易记录
+     * 根据增值服务流水获取交易记录
      *
-     * @param requestData body 请求数据，JSON格式
-     *                    <table border="1" cellspacing="0" cellpadding="5px">
+     * @param requestData 根据流水获取交易记录，请求参数
+     *                    <p>
+     *                    消息体(body)请求参数如下，JSON格式，可选
+     *                    <p>
+     *                    <p><table border="1" cellspacing="0" cellpadding="5px">
      *                    <tr><th>参数</th><th>类型</th><th>说明</th></tr>
-     *                    <tr><td>orderNumber</td><td>String</td><td>第三方流水号</td></tr>
+     *                    <tr><td>orderNumber</td><td>String</td><td>第三方增值服务流水号</td></tr>
      *                    </table>
      * @param listener    监听器
      * @see VASPayload
